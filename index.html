@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<!--
+	Prism by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Prism by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner split">
+					<section>
+						<h2>Welcome to Advanced autocomplete js</h2>
+					</section>
+					<section>
+						<p>This library is usefull for who are all suffer to customize autocomplete.</p>
+					</section>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner split">
+					<section>
+						<h2>This project is manintained by balaji under MIT license</h2>
+						<p>Feel free to ask question on my mail and if you use any bugs.
+                            balajiofficialmailme@gmail.com
+                        </p>
+<P>
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</P>					</section>
+					<section>
+						<ul class="checklist">
+							<li>LOAD DATA</li>
+							<li>ARRANGE DATA</li>
+							<li>EASY UI</li>
+						</ul>
+					</section>
+				</div>
+			</section>
+
+            <section id="one" class="wrapper">
+				<div class="inner split">
+					<section>
+                        <h2>installation</h2>
+                        
+<p style="background:grey;color:white;padding:10px"> npm install --save advanced_autocomplete</p>
+
+
+                        </section>
+					<section>
+                        <textarea id="code">
+
+
+
+                            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ac">
+
+
+    <table id="just_1">
+        <thead></thead>
+    
+    
+    <tbody id="just_2">
+
+</tbody>
+    </table>    
+
+    <!-- <ul id="just_1">
+        <li>gg</li>
+        <li>gfd</li>
+        <li>gg</li>
+        <li>gfd</li>
+        <li>gg</li>
+        <li><div>gfd</div></li>
+    </ul> -->
+
+
+Result:
+ <div id="result"> </div>  
+</body>
+</html>
+
+<input type="text" id="ac">
+
+<table id="just_1">
+    <thead></thead>
+
+
+<tbody id="just_2">
+
+</tbody>
+</table>    
+
+
+
+Result:
+<div id="result"> </div>  
+
+
+
+
+                        </textarea>
+                    </section>
+				</div>
+			</section>
+
+		<!-- Two -->
+
+        <!-- Scripts -->
+        <script src="./index.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+            <script src="assets/js/main.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/xml/xml.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/css/css.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/javascript/javascript.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/htmlmixed/htmlmixed.js"></script>     
+
+
+<script>
+    /**
+ * 
+ * In this pen:
+ * added scripts with CDN:
+ *   -  //cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.js
+ *   -  //cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/xml/xml.js
+ *   -  //cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/css/css.js
+ *   -  //cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/javascript/javascript.js
+ *   -  //cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/htmlmixed/htmlmixed.js
+ * 
+ */
+
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+	lineNumbers: true,
+	mode: 'htmlmixed',
+	// 	add theme attribute like so:
+	// 	theme: 'material'
+});
+
+
+// there are more themes, but Codepen lets me add a maximum of 30 external resources.
+var themes = ['3024-night', 'abcdef', 'ambiance', 'base16-dark', 'bespin', 'blackboard', 'cobalt', 'colorforth', 'dracula', 'erlang-dark', 'hopscotch', 'icecoder', 'isotope', 'lesser-dark', 'liquibyte', 'material', 'mbo', 'mdn-like', 'monokai'];
+var theme = themes[Math.floor(Math.random() * themes.length)];
+
+editor.setOption('theme', theme);
+
+
+//ex1
+var data=[
+
+
+    {
+        id:'1', name:'balaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'balaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'balaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'balaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'balaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'balaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'malaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'malaji',edu:'engineer'
+       }
+       ,    {
+        id:'1', name:'salaji',edu:'engineer'
+       }
+       ,
+    
+
+]
+
+// void (function() {
+isat_ac(document.getElementById("ac"),data,
+function(x,val){
+
+    return   x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() 
+},
+function(action,cursor,filtered,original_array,is_input_active){
+console.log("-----"+action+"------")
+console.log(filtered)
+//ui
+
+var tbody=document.getElementById("just_2")
+var result=document.getElementById("result")
+
+tbody.innerHTML="";
+var tr_data=[];
+
+ tr_data=original_array;
+
+for(var i=0;i<tr_data.length;i++)
+{
+   var tr = document.createElement("tr");
+
+
+var td_data=tr_data[i];
+var text;
+for(var td_key in td_data){
+var td = document.createElement("td");
+
+     text=document.createTextNode(td_data[td_key]);
+
+
+
+td.appendChild(text)
+tr.appendChild(td)
+
+}
+
+
+
+tbody.appendChild(tr);
+//ui
+
+
+
+}
+
+var trs=tbody.getElementsByTagName("tr");
+
+    console.log("cursor"+trs.length)
+//keyboard
+    if(cursor!=-1){
+        trs[cursor].style.background="red";
+      }
+
+      if(action=="enter"){
+
+        result.innerHTML=filtered[cursor].name;
+    }
+     
+//mouse
+
+if(action=="click"&&cursor!=-1){
+
+    trs[cursor].style.background="red";
+    //filltered
+    result.innerHTML=(filtered[cursor]);
+
+
+}
+
+// result
+    // document.getElementById("inner").innerHTML=is_input_active;
+    
+
+
+
+},{
+
+    root:"just_2",   //class or id
+    selector:"TR", //.class or #id tagName(DIV,LIST)
+
+
+},
+['name','id']
+);
+
+
+
+
+
+</script>
+</body>
+</html>
