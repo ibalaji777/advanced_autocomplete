@@ -6,13 +6,29 @@
 -->
 <html>
 	<head>
-		<title>Prism by TEMPLATED</title>
+		<title>Advanced AutoComplete</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
+
+<style>
+
+ul li:hover, ul li:focus {
+
+background:gray;
+color:white
+ }
+
+table tr:hover, table tr:focus {
+ 
+ background:black;
+ color:white
+}
+</style>
+
 	<body>
 
 		<!-- Banner -->
@@ -20,9 +36,13 @@
 				<div class="inner split">
 					<section>
 						<h2>Welcome to Advanced autocomplete js</h2>
+
 					</section>
 					<section>
 						<p>This library is usefull for who are all suffer to customize autocomplete.</p>
+
+						<h2>Supported By isat and angalware</h2>
+						<a href="https//www.isatsoftwaresolutions.com">iSat</a>
 					</section>
 				</div>
 			</section>
@@ -35,7 +55,8 @@
 						<p>Feel free to ask question on my mail and if you use any bugs.
                             balajiofficialmailme@gmail.com
                         </p>
-<P>
+
+						<P>
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -58,50 +79,162 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <h2>installation</h2>
                         
 <p style="background:grey;color:white;padding:10px"> npm install --save advanced_autocomplete</p>
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px"> 
+   isat_ac(input_element,input_data, function(x,val){
+	
+	
+	return;
+	
+}, 
+function(action,cursor,filtered,original_array,is_input_active){
+
+
+},{
+	root:"table_id_class",   //class or id
+	selector:"TR", //.class or #id tagName(DIV,LIST)
+	
+	},
+	['name','id']
+	);
+</xmp>
+<ul>
+<li>
+	<b>input_element</b> Should be a document.getElementById() or queryselector....etc
+</li>
+
+<li>
+	<b>data</b> Should be a array of object eg showen in example problems....etc
+</li>
+<li>
+	<b>filter</b> holds two variable x and val here x is array of single object while loop and val is the value of current input
+</li>
+
+<li>
+	4th function passing four parameters (action,cursor,filered,original_array,is_input_active)
+	<b>action:</b>this evt triggered while type any key in keyboard -we are getting one of the parameters(begin or any)<br> 
+	<b>keyboard events</b> triggered while you specific key press up arrow or down arrow or enter key- we are gettting parameter 
+	like(up or down or enter)whtat you pressed <br>
+	<b>mouse events</b> triggered when mouse  click-parameter passed by(click)  <br>
+	cursor return index of clicked dom or current position of index while pressed key<br>
+	<b>data</b>it return the filtered data with swap<br>
+    <b>data2</b>it return the filered data but it return how you was send data.<br>
+     <b>is_input_active</b> we can handle the autocomplete visible or hidden by boolean- it sends the true while input is active otherwise it is false
+
+</li>
+
+<li>
+<b>object-root:</b> is a parent id or table id ulelement id<br>
+<b>object-selector:</b> selector helps to find the index of what u clicked or children elements of root parent
+<!-- <h2> -->
+	tagname - If u use table.<br>
+Eg:	table children are "TR",you are tagname should be "TR"
+if you use 
+ul children are "LI",you are tagname should be "LI"<br>
+otherwise use 
+#id or class
+
+<!-- </h2> -->
+</li>
+
+<li>swap-you can arrange your autocomplete column or remove the specific column or show only specific column-object key should be placed in array</li>
+
+
+</ul>
+
 
 
                         </section>
 					<section>
-                        <textarea id="code">
-
-
-
-                            
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <input type="text" id="ac">
-
-
-    <table id="just_1">
-        <thead></thead>
     
-    
-    <tbody id="just_2">
+<!-- code editor -->
 
-</tbody>
-    </table>    
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">
+	<input type="text" id="ac">
+	<table id="just_1">
+		<thead></thead>
+	<tbody id="just_2">
+	</tbody>
+	</table>    
+	Result:
+	<div id="result"> ans</div> 
+</xmp>	
 
-    <!-- <ul id="just_1">
-        <li>gg</li>
-        <li>gfd</li>
-        <li>gg</li>
-        <li>gfd</li>
-        <li>gg</li>
-        <li><div>gfd</div></li>
-    </ul> -->
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px"> 
+var data=[
+   {id:'1', name:'balaji',edu:'engineer' }
+   {id:'2', name:'sekar',edu:'engineer'},
+   {id:'2', name:'yokesh',edu:'engineer'},
+   {id:'3', name:'durai',edu:'engineer'},
+   {id:'4', name:'gabrie',edu:'engineer'},
+   {id:'2', name:'Raghu',edu:'engineer'},
+   {id:'2', name:'Aravind',edu:'engineer'},
+   {id:'2', name:'deva',edu:'engineer'},
+   ]
+isat_ac(document.getElementById("ac"),data,
+function(x,val){
+return   x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() 
+},
+function(action,cursor,filtered,original_array,is_input_active){
+console.log("-----"+action+"------")
+console.log(filtered)
+
+var tbody=document.getElementById("just_2")
+var result=document.getElementById("result")
+if(is_input_active){
+
+tbody.style.display="";
+//ui
+tbody.innerHTML="";
+var tr_data=[];
+tr_data=original_array;
+for(var i=0;i<tr_data.length;i++)
+{
+var tr = document.createElement("tr");
+var td_data=tr_data[i];
+var text;
+for(var td_key in td_data){
+var td = document.createElement("td");
+ text=document.createTextNode(td_data[td_key]);
+td.appendChild(text)
+tr.appendChild(td)
+}
+tbody.appendChild(tr);
+//ui
+}
+var trs=tbody.getElementsByTagName("tr");
+console.log("cursor"+trs.length)
+//keyboard
+if(cursor!=-1){
+	trs[cursor].style.background="red";
+  }
+  if(action=="enter"){
+	result.innerHTML=filtered[cursor].name;
+}
+ //mouse
+if(action=="click"&&cursor!=-1){
+
+trs[cursor].style.background="red";
+//filltered
+result.innerHTML=(filtered[cursor]);
+}
+// result
+}else{
+cursor=-1;
+ tbody.style.display="none";
+}
+},{
+root:"just_2",   //class or id
+selector:"TR", //.class or #id tagName(DIV,LIST)
+
+},
+['name','id']
+);
 
 
-Result:
- <div id="result"> </div>  
-</body>
-</html>
 
+</xmp>
+
+<!-- code editor end -->
 <input type="text" id="ac">
 
 <table id="just_1">
@@ -116,17 +249,438 @@ Result:
 
 
 Result:
-<div id="result"> </div>  
+<div id="result"> ans</div>  
 
 
 
-
-                        </textarea>
-                    </section>
+                 </section>
 				</div>
 			</section>
 
-		<!-- Two -->
+
+
+
+			<section id="one" class="wrapper">
+				<div class="inner split">
+					<section>
+<h2>LIST</h2>
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">
+
+function(x,val){
+	return   x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() 
+},
+
+
+</xmp>	
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">
+
+[]
+
+</xmp>
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">
+	
+	<input type="text" id="ul_input">
+	<ul  id="Just_2_ul" style="list-style-type: none;background:pink;margin:0;padding:0">
+	</ul>
+			
+</xmp>	
+			
+			<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px"> 
+var data=[
+{id:'1', name:'balaji',edu:'engineer' },
+{id:'2', name:'sekar',edu:'eng'},
+{id:'3', name:'yokesh',edu:'engineer'},
+{id:'4', name:'durai',edu:'eng'},
+{id:'5', name:'gabrie',edu:'eng'},
+{id:'6', name:'Raghu',edu:'engineer'},
+{id:'7', name:'Aravind',edu:'eng'},
+{id:'8', name:'Deva',edu:'engineer'},
+]
+isat_ac(document.getElementById("ul_input"),data,
+function(x,val){
+    return   x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() 
+},
+function(action,cursor,filtered,original_array,is_input_active){
+console.log("-----"+action+"->"+cursor+"-----")
+console.log(filtered)
+var ul=document.getElementById("Just_2_ul")
+var lis=ul.getElementsByTagName("li");
+if(action=="click"){
+    lis[cursor].style.background="red";
+    document.getElementById("ul_input").value=filtered[cursor].name;
+    ul.style.display="none";    
+}
+if(is_input_active){
+ul.style.display="";
+ul.innerHTML="";
+var ul_data=[];
+ ul_data=original_array;
+for(var i=0;i<ul_data.length;i++)
+{
+var li = document.createElement("li");
+var li_data=ul_data[i];
+var text;
+text=document.createTextNode(li_data["name"]);
+console.log("li"+li_data["name"])
+li.appendChild(text)
+ul.appendChild(li);
+}
+ if(action=="enter"){
+
+        document.getElementById("ul_input").value=filtered[cursor].name;
+        ul.style.display="none";
+    }
+     if(cursor!=-1){
+
+    lis[cursor].style.background="red";}
+}else{
+    cursor=-1;
+}
+},{
+    root:"Just_2_ul",   //class or id
+    selector:"LI", //.class or #id tagName(DIV,LIST)
+},
+[]
+);
+
+
+</xmp>
+		</section>
+		<section>
+
+			
+			<!-- code editor end -->
+			<input type="text" id="ul_input">
+			<ul  id="Just_2_ul" style="list-style-type: none;background:pink;margin:0;padding:0">
+			</ul>
+								
+							
+		</div></section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<section id="one" class="wrapper">
+				<div class="inner split">
+					<section>
+<h2>Basic Eg:1</h2>
+Notes:
+<ul>
+	<li>Empty fillter</li>
+	<li>empty swap</li>
+	<li>Events and Actions</li>
+</ul>
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">
+
+function(x,val){
+
+return;
+}
+
+</xmp>	
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">
+
+[]
+
+</xmp>
+
+			<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">
+<input type="text" id="ex-1">
+<table id="ex-1_table">
+<thead></thead>
+<tbody id="ex-2_table">
+</tbody>
+</table>    
+Result:
+input:<div id="ex-1_data"> </div> 
+input:<div id="ex-1_input"> </div> 
+action:<div id="ex_1_action"></div> 
+cursor:<div id="ex_1_cursor"></div> 
+			</xmp>	
+			
+			<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px"> 
+var data=[
+{id:'1', name:'balaji',edu:'engineer' },
+{id:'2', name:'sekar',edu:'eng'},
+{id:'3', name:'yokesh',edu:'engineer'},
+{id:'4', name:'durai',edu:'eng'},
+{id:'5', name:'gabrie',edu:'eng'},
+{id:'6', name:'Raghu',edu:'engineer'},
+{id:'7', name:'Aravind',edu:'eng'},
+{id:'8', name:'Deva',edu:'engineer'},
+]
+isat_ac(document.getElementById("ex-1"),data,
+function(x,val){
+
+	return;
+},
+function(action,cursor,filtered,original_array,is_input_active){
+
+document.getElementById("ex-1_data").innerHTML=JSON.stringify(filtered);
+document.getElementById("ex-1_input").innerHTML="input: "+is_input_active;
+document.getElementById("ex-1_action").innerHTML="action: "+action;
+document.getElementById("ex-1_cursor").innerHTML="cursor: "+cursor;
+
+
+},{
+root:"ex-1_table",   //class or id
+selector:"TR", //.class or #id tagName(DIV,LIST)
+
+},
+[]
+);
+
+</xmp>
+		</section>
+		<section>
+
+			
+			<!-- code editor end -->
+			<input type="text" id="ex-1">
+			<table id="ex-1_table">
+			<thead></thead>
+			<tbody id="ex-2_table">
+			</tbody>
+			</table>    
+			Result:
+			<div id="ex-1_data"> </div> 
+			<div id="ex-1_input"> </div> 
+			<div id="ex-1_action"></div> 
+			<div id="ex-1_cursor"></div> 
+								
+							</div></section> 
+
+
+
+
+							<section id="one" class="wrapper">
+								<div class="inner split">
+									<section>
+				<h2>Basics eg:2</h2>
+Notes:
+<ul>
+	<li>with filter(only name)</li>
+	<li>with swap</li>
+	
+</ul>
+<h3>filter</h3>
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">	
+
+function(x,val){
+
+return x.name.substr(0, val.length).toUpperCase() == val.toUpperCase()
+},
+
+</xmp>
+
+<h3>swap</h3>
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">	
+
+['name','edu','id']
+
+</xmp>
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">						
+<!-- code editor end -->
+<input type="text" id="ex-2">
+<table id="ex-2_table">
+<thead></thead>
+<tbody id="ex-3_table">
+</tbody>
+</table>    
+Result:
+<div id="ex-2_data"> </div> 
+<div id="ex-2_input"> </div> 
+<div id="ex-2_action"></div> 
+<div id="ex-2_cursor"></div> 					
+							</xmp>	
+							
+							<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px"> 
+var data=[
+{id:'1', name:'balaji',edu:'engineer' },
+{id:'2', name:'sekar',edu:'eng'},
+{id:'3', name:'yokesh',edu:'engineer'},
+{id:'4', name:'durai',edu:'eng'},
+{id:'5', name:'gabrie',edu:'eng'},
+{id:'6', name:'Raghu',edu:'engineer'},
+{id:'7', name:'Aravind',edu:'eng'},
+{id:'8', name:'Deva',edu:'engineer'},
+]
+isat_ac(document.getElementById("ex-2"),data,
+function(x,val){
+
+	return x.name.substr(0, val.length).toUpperCase() == val.toUpperCase()
+},
+function(action,cursor,filtered,original_array,is_input_active){
+
+document.getElementById("ex-2_data").innerHTML=JSON.stringify(filtered);
+document.getElementById("ex-2_input").innerHTML="input: "+is_input_active;
+document.getElementById("ex-2_action").innerHTML="action: "+action;
+document.getElementById("ex-2_cursor").innerHTML="cursor: "+cursor;
+
+
+},{
+root:"ex-1_table",   //class or id
+selector:"TR", //.class or #id tagName(DIV,LIST)
+
+},
+['name','edu','id']
+);
+							</xmp>
+						</section>
+						<section>
+				
+							
+							<!-- code editor end -->
+							<input type="text" id="ex-2">
+							<table id="ex-2_table">
+							<thead></thead>
+							<tbody id="ex-3_table">
+							</tbody>
+							</table>    
+							Result:
+							<div id="ex-2_data"> </div> 
+							<div id="ex-2_input"> </div> 
+							<div id="ex-2_action"></div> 
+							<div id="ex-2_cursor"></div> 
+												
+											</div></section> 
+				
+
+
+
+											
+
+
+							<section id="one" class="wrapper">
+								<div class="inner split">
+									<section>
+				<h2>Basics eg:3</h2>
+Notes:
+<ul>
+	<li>with  filter(multiple filter name,edu)</li>
+	<li>with swap</li>
+	
+</ul>
+<h3>Multiple filter</h3>
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">	
+
+function(x,val){
+
+	return x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() ||
+	 x.edu.substr(0, val.length).toUpperCase() == val.toUpperCase()
+},
+
+</xmp>
+
+<h3>swap</h3>
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">	
+
+['name','edu','id']
+
+</xmp>
+
+
+<h3>Swap(not applied below example)</h3>
+you can also remove unwanted data form the array of object
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">	
+
+['name','edu']
+
+</xmp>
+
+
+
+<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px">						
+<!-- code editor end -->
+<input type="text" id="ex-3">
+<table id="ex-3_table">
+<thead></thead>
+<tbody id="ex-4_table">
+</tbody>
+</table>    
+Result:
+<div id="ex-3_data"> </div> 
+<div id="ex-3_input"> </div> 
+<div id="ex-3_action"></div> 
+<div id="ex-3_cursor"></div> 					
+							</xmp>	
+							
+							<xmp style="font-size: 11px;background:black;color:white;padding:0 10px;margin:10px"> 
+var data=[
+{id:'1', name:'balaji',edu:'engineer' },
+{id:'2', name:'sekar',edu:'eng'},
+{id:'3', name:'yokesh',edu:'engineer'},
+{id:'4', name:'durai',edu:'eng'},
+{id:'5', name:'gabrie',edu:'eng'},
+{id:'6', name:'Raghu',edu:'engineer'},
+{id:'7', name:'Aravind',edu:'eng'},
+{id:'8', name:'Deva',edu:'engineer'},
+]
+isat_ac(document.getElementById("ex-3"),data,
+function(x,val){
+
+	return x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() || x.edu.substr(0, val.length).toUpperCase() == val.toUpperCase()
+},
+function(action,cursor,filtered,original_array,is_input_active){
+
+document.getElementById("ex-3_data").innerHTML=JSON.stringify(filtered);
+document.getElementById("ex-3_input").innerHTML="input: "+is_input_active;
+document.getElementById("ex-3_action").innerHTML="action: "+action;
+document.getElementById("ex-3_cursor").innerHTML="cursor: "+cursor;
+
+
+},{
+root:"ex-3_table",   //class or id
+selector:"TR", //.class or #id tagName(DIV,LIST)
+
+},
+['name','edu','id']
+);
+							</xmp>
+						</section>
+						<section>
+				
+							
+							<!-- code editor end -->
+							<input type="text" id="ex-3">
+							<table id="ex-3_table">
+							<thead></thead>
+							<tbody id="ex-4_table">
+							</tbody>
+							</table>    
+							Result:
+							<div id="ex-3_data"> </div> 
+							<div id="ex-3_input"> </div> 
+							<div id="ex-3_action"></div> 
+							<div id="ex-3_cursor"></div> 	
+											</div></section> 
+				
+
+
+
+
+
+			<!-- Two -->
 
         <!-- Scripts -->
         <script src="./index.js"></script>
@@ -171,127 +725,139 @@ editor.setOption('theme', theme);
 
 
 //ex1
-var data=[
+// var data=[
 
 
-    {
-        id:'1', name:'balaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'balaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'balaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'balaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'balaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'balaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'malaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'malaji',edu:'engineer'
-       }
-       ,    {
-        id:'1', name:'salaji',edu:'engineer'
-       }
-       ,
+//     {
+//         id:'1', name:'balaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'balaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'balaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'balaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'balaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'balaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'malaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'malaji',edu:'engineer'
+//        }
+//        ,    {
+//         id:'1', name:'salaji',edu:'engineer'
+//        }
+//        ,
     
 
-]
+// ]
 
-// void (function() {
-isat_ac(document.getElementById("ac"),data,
-function(x,val){
+// // void (function() {
+// isat_ac(document.getElementById("ac"),data,
+// function(x,val){
 
-    return   x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() 
-},
-function(action,cursor,filtered,original_array,is_input_active){
-console.log("-----"+action+"------")
-console.log(filtered)
-//ui
+//     return   x.name.substr(0, val.length).toUpperCase() == val.toUpperCase() 
+// },
+// function(action,cursor,filtered,original_array,is_input_active){
+// console.log("-----"+action+"------")
+// // console.log(filtered)
+// console.log("input----"+is_input_active)
+// //active or inactive
 
-var tbody=document.getElementById("just_2")
-var result=document.getElementById("result")
+// var tbody=document.getElementById("just_2")
+// var result=document.getElementById("result")
 
-tbody.innerHTML="";
-var tr_data=[];
+// if(is_input_active){
+// alert("active")
+//     tbody.style.display="";
 
- tr_data=original_array;
+// }else{
+//     alert("fg")
+//     tbody.style.display="none";
 
-for(var i=0;i<tr_data.length;i++)
-{
-   var tr = document.createElement("tr");
+// }
+// //ui
 
+// tbody.innerHTML="";
+// var tr_data=[];
 
-var td_data=tr_data[i];
-var text;
-for(var td_key in td_data){
-var td = document.createElement("td");
+//  tr_data=original_array;
 
-     text=document.createTextNode(td_data[td_key]);
-
-
-
-td.appendChild(text)
-tr.appendChild(td)
-
-}
+// for(var i=0;i<tr_data.length;i++)
+// {
+//    var tr = document.createElement("tr");
 
 
+// var td_data=tr_data[i];
+// var text;
+// for(var td_key in td_data){
+// var td = document.createElement("td");
 
-tbody.appendChild(tr);
-//ui
+//      text=document.createTextNode(td_data[td_key]);
 
 
 
-}
+// td.appendChild(text)
+// tr.appendChild(td)
 
-var trs=tbody.getElementsByTagName("tr");
+// }
 
-    console.log("cursor"+trs.length)
-//keyboard
-    if(cursor!=-1){
-        trs[cursor].style.background="red";
-      }
 
-      if(action=="enter"){
 
-        result.innerHTML=filtered[cursor].name;
-    }
+// tbody.appendChild(tr);
+// //ui
+
+
+
+// }
+
+// var trs=tbody.getElementsByTagName("tr");
+
+//     console.log("cursor"+trs.length)
+// //keyboard
+//     if(cursor!=-1){
+//         trs[cursor].style.background="red";
+//       }
+
+//       if(action=="enter"){
+
+//         result.innerHTML=filtered[cursor].name;
+//     }
      
-//mouse
+// //mouse
 
-if(action=="click"&&cursor!=-1){
+// if(action=="click"&&cursor!=-1){
 
-    trs[cursor].style.background="red";
-    //filltered
-    result.innerHTML=(filtered[cursor]);
+//     trs[cursor].style.background="red";
+//     //filltered
+//     result.innerHTML=(filtered[cursor].name);
 
 
-}
+// }
 
-// result
-    // document.getElementById("inner").innerHTML=is_input_active;
+// // result
+//     // document.getElementById("inner").innerHTML=is_input_active;
     
 
 
 
-},{
+// },{
 
-    root:"just_2",   //class or id
-    selector:"TR", //.class or #id tagName(DIV,LIST)
+//     root:"just_2",   //class or id
+//     selector:"TR", //.class or #id tagName(DIV,LIST)
 
 
-},
-['name','id']
-);
+// },
+// ['name','id']
+// );
 
 
 
